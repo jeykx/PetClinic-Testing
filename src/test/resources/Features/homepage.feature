@@ -1,5 +1,4 @@
-Feature : Accès au site web.
-          En tant que utilisateur d'internet je peux avoir accés au site web via un navigateur afin de profiter de ces differents services
+Feature : En tant que utilisateur d'internet je peux avoir accés au site web via un navigateur afin de profiter de ces differents services
 
   Scenario: Le visiteur accède au site web https://spring-petclinic-community.herokuapp.com/ via un navigateur.
     Given que je suis bien connecté à internet

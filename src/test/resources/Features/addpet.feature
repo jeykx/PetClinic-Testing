@@ -1,5 +1,4 @@
-Feature: Ajouter un nouvel animal de compagnie
-         En tant que visiteur du site web je peux ajouter un animal de compagnie afin qu'il soi visible sur la fiche du proprietaire
+Feature: En tant que visiteur du site web je peux ajouter un animal de compagnie afin qu'il soi visible sur la fiche du proprietaire
 
   Scenario: Le visiteur du site web peut ajouter un nouvel animal de compagnie à la fiche du propriétaire
     Given que je suis sur la fiche d’informations du propriétaire

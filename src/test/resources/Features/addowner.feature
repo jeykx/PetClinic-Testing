@@ -1,5 +1,4 @@
-Feature: Ajouter un propriétaire
-         En tant que visiteur du site web je peux ajouter un proprietaire afin d'avoir accés à ces informations
+Feature: En tant que visiteur du site web je peux ajouter un proprietaire afin d'avoir accés à ces informations
 
   Scenario: Le visiteur du site web peut ajouter un propriétaire
     Given que je suis sur la page Find Owners
