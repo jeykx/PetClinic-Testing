@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import base.BaseUtil;
+import base.confUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -11,9 +11,9 @@ import pageObjects.OwnerInformationPage;
 
 public class OwnerInformationStepDefinition {
 
-    private final BaseUtil base;
+    private final confUtil base;
 
-    public OwnerInformationStepDefinition(BaseUtil base) {this.base = base;}
+    public OwnerInformationStepDefinition(confUtil base) {this.base = base;}
 
     public static final WebDriver driver = new ChromeDriver();
 
@@ -33,35 +33,26 @@ public class OwnerInformationStepDefinition {
 
     }
 
-    @And("que j’ai saisi le nom de l’animal")
-    public void queJAiSaisiLeNomDeLAnimal() {
+    @And("i fill form in the following:")
+    public void formPet() {
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.NamePet();
+        ownerInformationPage.FillsPet();
 
     }
 
-    @And("que j’ai saisie la date de naissance de l’animal")
-    public void queJAiSaisieLaDateDeNaissanceDeLAnimal() {
-        OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.BirthDatePet();
-
-    }
-
-    @And("que j’ai sélectionné le type de l’animal")
-    public void queJAiSélectionnéLeTypeDeLAnimal() {
-        OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.TypePet();
-
-    }
-
-    @When("je clique sur le bouton “Add Pet”")
+    @When("i click on {string}")
     public void jeCliqueSurLeBoutonAddPet() {
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
         ownerInformationPage.BtnAddPetValidate();
 
     }
 
-    @Then("l’animal à bien été ajouté à la fiche du propriétaire")
+    @Then("pet has been added to the owner's profile")
     public void lAnimalÀBienÉtéAjoutéÀLaFicheDuPropriétaire() {
+    }
+
+    @And("I control that print information are:")
+    public void VerifyInfosPet() {
+
     }
 }

@@ -1,24 +1,24 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
-public class VeterinariansPage {
+public class VeterinariansPage extends GlobalPage {
 
     public WebDriver driver = new ChromeDriver();
 
-    public static By LinkVet = By.xpath("//*[@id=\"main-navbar\"]/ul/li[4]/a");
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Veterinarians')]")
+    private WebElement LinkVet;
 
-    public void HomeCheck() {
-        driver.get("https://spring-petclinic-community.herokuapp.com/");
-
+    public VeterinariansPage(WebDriver driver) { super(driver);
     }
+
 
     public void ClickVeto() {
         driver.get("https://spring-petclinic-community.herokuapp.com/");
-        WebElement link = this.driver.findElement(LinkVet);
-        link.click();
+        this.LinkVet.click();
     }
 }

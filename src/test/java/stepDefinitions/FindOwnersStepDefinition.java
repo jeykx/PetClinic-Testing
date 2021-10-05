@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import base.BaseUtil;
+import base.confUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -11,51 +11,56 @@ import pageObjects.FindOwnersPage;
 
 public class FindOwnersStepDefinition {
 
-    private final BaseUtil base;
+    private final confUtil base;
 
-    public FindOwnersStepDefinition(BaseUtil base) {
+    public FindOwnersStepDefinition(confUtil base) {
         this.base = base;
     }
 
     public static final WebDriver driver = new ChromeDriver();
 
 
-    @Given("que je suis sur la page d’accueil du site web")
+    @Given("i am on the home page of the website")
     public void queJeSuisSurLaPageDAccueilDuSiteWeb() {
 
     }
 
-    @When("je clique sur le lien “Find Owners”")
+    @When("i click on the {string} link")
     public void jeCliqueSurLeLienFindOwners() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.ClickLinkOwner();
 
     }
 
-    @And("je clique sur le bouton “Find Owner”")
+    @And("i click on the {string} button")
     public void jeCliqueSurLeBoutonFindOwner() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.ClickFindOwner();
 
     }
 
-    @Then("j'accède à la liste de tous les propriétaires")
+    @Then("i access the list of all owners")
     public void jAccèdeÀLaListeDeTousLesPropriétaires() {
     }
 
 
-    @Given("que je suis sur la page Find Owners")
+    @Given("i am on the home page of the website")
     public void queJeSuisSurLaPageFindOwners() {
 
     }
 
-    @When("je saisi le nom du propriétaire dans le champ")
+    @And("i click on the {string} link in the navbar")
+    public void clickLinkFoNav() {
+
+    }
+
+    @When("i fill form")
     public void jeSaisiLeNomDuPropriétaireDansLeChamp() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.SearchOwner();
     }
 
-    @And("que je clique sur le bouton “Find Owner”")
+    @And("i click on the {string} button")
     public void CliqueSurLeBoutonFindOwner() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.SearchClickOwner();
@@ -64,7 +69,38 @@ public class FindOwnersStepDefinition {
     }
 
 
-    @Then("les informations du propriètaire s'affiche")
+    @Then("the owner's details are displayed")
     public void lesInformationsDuPropriètaireSAffiche() {
+    }
+
+    // Scenario Outline //
+
+    @Given("i am on the home page of the website")
+    public void queJeSuisSurLaPageFindOwnersOutline() {
+
+    }
+
+    @And("i click on the {string} link in the navbar")
+    public void clickLinkFoNavOutline() {
+
+    }
+
+    @When("i fill form {string}")
+    public void jeSaisiLeNomDuPropriétaireDansLeChampoutiline() {
+        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
+        findOwnersPage.SearchOwner();
+    }
+
+    @And("i click on the {string} button")
+    public void CliqueSurLeBoutonFindOwnerOutline() {
+        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
+        findOwnersPage.SearchClickOwner();
+
+
+    }
+
+
+    @Then("the owner's details are displayed")
+    public void lesInformationsDuPropriètaireSAfficheOutline() {
     }
 }
