@@ -12,7 +12,7 @@ Feature: As a visitor to the website I can add an owner to have access to this i
       |phone    |0303030303       |
     When I click on "Add Owner" button
     Then I'm redirected on page with title "Owner Information"
-    And I control that print information are:
+    And I control that print information :
       |locator  |value            |
       |surname  |jeremy           |
       |name     |dufour           |

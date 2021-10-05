@@ -1,7 +1,24 @@
-Feature: En tant que visiteur du site web je peux rechercher un propriétaire par son nom afin d'avoir accés à ces informations
+Feature: As a visitor to the website I can search for an owner by name to get access to this information
 
-  Scenario: Le visiteur du site web accède à la fiche d’information d’un propriétaire
-    Given que je suis sur la page Find Owners
-    When je saisi le nom du propriétaire dans le champ
-    And que je clique sur le bouton “Find Owner”
-    Then les informations du propriètaire s'affiche
+  Scenario: The website visitor can access the information sheet of an owner
+    Given i am on the home page of the website url
+    And i click on the "Find owners" link in the navbar
+    When i fill form
+    |locator |value       |
+    |name    |dufour      |
+    And click on the "Find Owner" button
+    Then the owner's details are displayed
+
+  Scenario Outline: The website visitor can access the information sheet of an owner
+    Given i am good on the home page of the website
+    And click on the "Find owners" link in the navbar
+    When i fill form "<name>"
+    And i click on the "Find Owner" button
+    Then the owner's details are good displayed
+
+    Examples:
+    |name     |
+    |Dubois   |
+    |Dupont   |
+    |Franklin |
+    |Black    |

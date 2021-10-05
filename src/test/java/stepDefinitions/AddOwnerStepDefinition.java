@@ -55,7 +55,7 @@ public class AddOwnerStepDefinition {
     public void laFicheDuPropriétaireAiBienCréé() {
     }
 
-    @And("I control that print information are:")
+    @And("I control that print information :")
     public void verifyinfos() {
 
     }

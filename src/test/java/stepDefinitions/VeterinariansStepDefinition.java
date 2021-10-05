@@ -16,13 +16,13 @@ public class VeterinariansStepDefinition {
 
     public VeterinariansStepDefinition(confUtil base) { this.base = base; }
 
-    @Given("i am on the home page of the website")
+    @Given("i am on the home page of the website petclinic")
     public void queJeSuisSurLaPageDAccueilDuSiteWeb() {
 
 
     }
 
-    @When("i click on the {string} link")
+    @When("click on the {string} link")
     public void jeCliqueSurLeLien() {
         VeterinariansPage veterinariansPage = new VeterinariansPage(base.driver);
         veterinariansPage.ClickVeto();

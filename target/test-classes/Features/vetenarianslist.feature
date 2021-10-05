@@ -1,6 +1,6 @@
-Feature: En tant que visiteur du site web je peux avoir acces à la liste des vétérinaires afin de pouvoir consulter les informations de ceux-ci
+Feature: As a visitor to the website I can access the list of veterinarians to view their information
 
-  Scenario: Le visiteur accède à la liste des vétérinaires par le biais du lien dédié dans la navbar du site
-    Given que je suis sur la page d'accueil du site web
-    When je clique sur le lien VETENARIANS
-    Then je suis redirigé vers la liste des vétérinaires
+  Scenario: The visitor can access the list of veterinarians through the dedicated link in the navbar of the site
+    Given i am on the home page of the website petclinic
+    When click on the "VETERINARIANS" link
+    Then i am redirected to the list of vets

@@ -1,13 +1,23 @@
-Feature: En tant que visiteur du site web je peux ajouter un proprietaire afin d'avoir accés à ces informations
+Feature: As a visitor to the website I can add an owner to have access to this information
 
-  Scenario: Le visiteur du site web peut ajouter un propriétaire
-    Given que le bouton est visible
-    And que je clique sur le bouton "Add Owner"
-    And que j’ai saisi mon prénom
-    And que j’ai saisi mon nom
-    And que j’ai saisie mon adresse
-    And que j'ai saisie ma ville
-    And que j’ai saisi mon numéro de téléphone
-    When je clique sur le bouton “Add Owner”
-    Then la fiche du propriétaire ai bien créé
+  Scenario: user can add owner
+    Given I'm on "find owners" page
+    And i click on "Add Owner" button
+    And I fill form in the following:
+      |locator  |value            |
+      |surname  |jeremy           |
+      |name     |dufour           |
+      |address  |rue du pere noel |
+      |city     |henin beaumont   |
+      |phone    |0303030303       |
+    When I click on "Add Owner" button
+    Then I'm redirected on page with title "Owner Information"
+    And I control that print information :
+      |locator  |value            |
+      |surname  |jeremy           |
+      |name     |dufour           |
+      |address  |rue du pere noel |
+      |city     |henin beaumont   |
+      |phone    |0303030303       |
+
 

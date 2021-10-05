@@ -32,7 +32,7 @@ public class FindOwnersStepDefinition {
 
     }
 
-    @And("i click on the {string} button")
+    @And("i click on the {string} button for access all owners")
     public void jeCliqueSurLeBoutonFindOwner() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.ClickFindOwner();
@@ -44,7 +44,7 @@ public class FindOwnersStepDefinition {
     }
 
 
-    @Given("i am on the home page of the website")
+    @Given("i am on the home page of the website url")
     public void queJeSuisSurLaPageFindOwners() {
 
     }
@@ -60,7 +60,7 @@ public class FindOwnersStepDefinition {
         findOwnersPage.SearchOwner();
     }
 
-    @And("i click on the {string} button")
+    @And("click on the {string} button")
     public void CliqueSurLeBoutonFindOwner() {
         FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
         findOwnersPage.SearchClickOwner();
@@ -75,12 +75,12 @@ public class FindOwnersStepDefinition {
 
     // Scenario Outline //
 
-    @Given("i am on the home page of the website")
+    @Given("i am good on the home page of the website")
     public void queJeSuisSurLaPageFindOwnersOutline() {
 
     }
 
-    @And("i click on the {string} link in the navbar")
+    @And("click on the {string} link in the navbar")
     public void clickLinkFoNavOutline() {
 
     }
@@ -100,7 +100,7 @@ public class FindOwnersStepDefinition {
     }
 
 
-    @Then("the owner's details are displayed")
+    @Then("the owner's details are good displayed")
     public void lesInformationsDuPropriètaireSAfficheOutline() {
     }
 }
