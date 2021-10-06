@@ -30,21 +30,23 @@ public class OwnerInformationPage extends GlobalPage {
         driver.get("https://spring-petclinic-community.herokuapp.com/owners/11");
     }
 
-    public void AddNewPetBtn() {
+    public void AddNewPetBtn(String arg0) {
 
         this.AddNewPetRedirect.click();
     }
 
-    public void FillsPet() {
+    public void FillsPet(String name, String value) {
 
         this.InserPetName.sendKeys("Mosquito");
         this.InsertPetBirthDate.sendKeys("2014-12-15");
         new Select(this.SelectPetType).selectByVisibleText("dog");
     }
 
-    public void BtnAddPetValidate() {
+    public void BtnAddPetValidate(String arg0) {
 
         this.AddNewpetValidateBtn.click();
     }
 
+    public void fillsPetData(String arg0, String arg1, String arg2) {
+    }
 }

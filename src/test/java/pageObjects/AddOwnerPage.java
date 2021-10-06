@@ -1,12 +1,10 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 public class AddOwnerPage extends GlobalPage {
 
@@ -35,44 +33,36 @@ public class AddOwnerPage extends GlobalPage {
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Add Owner')]")
     private WebElement BtnAddOwnerValidate;
 
-    public void VisibleBtn() {
+    public void VisibleBtn(String arg0) {
 
         driver.get("https://spring-petclinic-community.herokuapp.com/owners/find");
         this.BtnAddOwnerPage.isDisplayed();
     }
 
-    public void ClickBtnAddOwner() {
+    public void ClickBtnAddOwner(String arg0) {
 
         this.BtnAddOwnerPage.click();
     }
 
-    public void CreateOwnerFirstname() {
+    public void inputForm(String name, String value) {
 
-        this.insertFirstname.sendKeys("Julien");
-    }
-
-    public void CreateOwnerName() {
-
+        this.insertFirstname.sendKeys("jeremy");
         this.insertLastname.sendKeys("dufour");
+        this.insertAddress.sendKeys("rue du pere noel");
+        this.insertCity.sendKeys("henin beaumont");
+        this.insertTelephone.sendKeys("0303030303");
     }
 
-    public void CreateOwnerAddress() {
-
-        this.insertAddress.sendKeys("18 rue des bergers");
-    }
-
-    public void CreateOwnerCity() {
-
-        this.insertCity.sendKeys("Lille");
-    }
-
-    public void CreateOwnerTel() {
-
-        this.insertTelephone.sendKeys("0321458741");
-    }
-
-    public void OwnerBtnConfirm() {
+    public void OwnerBtnConfirm(String arg0) {
 
         this.BtnAddOwnerValidate.click();
+    }
+
+    public void inputFormOutline(String arg0, String arg1, String arg2, String arg3, String arg4) {
+        this.insertFirstname.sendKeys(arg0);
+        this.insertLastname.sendKeys(arg1);
+        this.insertAddress.sendKeys(arg2);
+        this.insertCity.sendKeys(arg3);
+        this.insertTelephone.sendKeys(arg4);
     }
 }

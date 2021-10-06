@@ -1,17 +1,31 @@
 Feature: As a visitor to the website I can add a pet so that it is visible on the owner's page
 
   Scenario: The website visitor can add a new pet to the owner's record
-    Given que je suis sur la fiche d’informations du propriétaire
-    And que je clique sur le bouton “Add New Pet”
+    Given i access on the owner's page
+    And click "Add New Pet" button
     And i fill form in the following:
       |locator   |value
       |name      |Mosquito
-      |birthDate | 2014-12-05
+      |birthDate |2014-12-05
       |type      |dog
     When i click on "Add Pet"
     Then pet has been added to the owner's profile
     And I control that print information are:
       |locator   |value
       |name      |Mosquito
-      |birthDate | 2014-12-05
+      |birthDate |2014-12-05
       |type      |dog
+
+    Scenario Outline:
+      Given i am on the owner's page
+      And i click on button "Add New Pet"
+      And i fill form for add pet "<name>" "<birthDate>" "<type>"
+      When click on "Add Pet"
+      Then pet has good been added to the owner's profile
+
+      Examples:
+        |name   |birthDate  |type
+        |rex    |2020-06-13 |dog
+        |icarus |2021-04-20 |cat
+        |elios  |2018-02-10 |dog
+
