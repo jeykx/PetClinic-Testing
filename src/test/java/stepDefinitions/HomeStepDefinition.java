@@ -1,18 +1,16 @@
 package stepDefinitions;
 
-import base.confUtil;
+import base.BaseUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.HomePage;
 
 public class HomeStepDefinition {
 
-    public confUtil base;
+    public BaseUtil base;
 
-    public HomeStepDefinition(confUtil base) {
+    public HomeStepDefinition(BaseUtil base) {
         this.base = base;
     }
 

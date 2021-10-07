@@ -8,7 +8,8 @@ import org.openqa.selenium.support.How;
 
 public class VeterinariansPage extends GlobalPage {
 
-    public WebDriver driver = new ChromeDriver();
+    /*public WebDriver driver = new ChromeDriver();*/
+
 
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Veterinarians')]")
     private WebElement LinkVet;

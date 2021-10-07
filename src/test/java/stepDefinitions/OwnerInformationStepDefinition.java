@@ -1,14 +1,11 @@
 package stepDefinitions;
 
-import base.confUtil;
+import base.BaseUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.AddOwnerPage;
 import pageObjects.OwnerInformationPage;
 
 import java.util.List;
@@ -16,11 +13,13 @@ import java.util.Map;
 
 public class OwnerInformationStepDefinition {
 
-    private final confUtil base;
+    private BaseUtil base;
 
-    public OwnerInformationStepDefinition(confUtil base) {this.base = base;}
+    public OwnerInformationStepDefinition(BaseUtil base) {
+        this.base = base;
+    }
 
-    public static final WebDriver driver = new ChromeDriver();
+   /* public static final WebDriver driver = new ChromeDriver();*/
 
     @Given("i access on the owner's page")
     public void queJeSuisSurLaFicheDInformationsDuPropriétaire() {

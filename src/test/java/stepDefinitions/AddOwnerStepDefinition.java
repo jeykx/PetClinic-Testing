@@ -1,33 +1,35 @@
 package stepDefinitions;
 
-import base.confUtil;
+import base.BaseUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import jdk.nashorn.internal.objects.Global;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.AddOwnerPage;
+import pageObjects.GlobalPage;
 
 import java.util.List;
 import java.util.Map;
 
 public class AddOwnerStepDefinition {
 
-    private final confUtil base;
+    private BaseUtil base;
 
-    public AddOwnerStepDefinition(confUtil base) {
+    public AddOwnerStepDefinition(BaseUtil base) {
         this.base = base;
     }
 
-    public static final WebDriver driver = new ChromeDriver();
+    /*public static final WebDriver driver = new ChromeDriver();*/
 
     @Given("I'm on {string} page")
     public void PageFindOwners(String arg0) {
-        AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-        addOwnerPage.VisibleBtn(arg0);
+        /**AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
+        addOwnerPage.VisibleBtn(arg0);*/
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
     }
 
     @And("i click on {string} button")
@@ -39,10 +41,9 @@ public class AddOwnerStepDefinition {
 
     @And("I fill form in the following:")
     public void fillFormNewOwner(DataTable table) {
-
         List<Map<String, String>> allDatas = table.asMaps(String.class, String.class);
+        AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
         for (Map<String, String> data : allDatas) {
-            AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
             addOwnerPage.inputForm(data.get("locator"), data.get("value"));
         }
 
@@ -51,7 +52,7 @@ public class AddOwnerStepDefinition {
     @When("I click on {string} button")
     public void jeCliqueSurLeBoutonAddOwner(String arg0) {
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-        addOwnerPage.OwnerBtnConfirm(arg0);
+        addOwnerPage.clickOnAddOwnerbutton();
     }
 
 
@@ -61,7 +62,7 @@ public class AddOwnerStepDefinition {
 
     @And("I control that print information :")
     public void verifyinfos() {
-        
+
 
     }
 
@@ -73,13 +74,12 @@ public class AddOwnerStepDefinition {
     public void iClickOnTheConfirmationButtonWithoutFillingInTheRequiredFields(String arg0) {
 
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-        addOwnerPage.OwnerBtnConfirm(arg0);
-        
+        addOwnerPage.clickOnAddOwnerbutton();
+
     }
 
     @Then("the error message {string} is displayed below each field")
     public void theErrorMessageIsDisplayedBelowEachField(String arg0) {
-
         Assert.assertEquals("ne peut pas être vide", arg0);
     }
 
@@ -116,7 +116,7 @@ public class AddOwnerStepDefinition {
     public void iClickOnTheButton(String arg0) {
 
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-        addOwnerPage.OwnerBtnConfirm(arg0);
+        addOwnerPage.clickOnAddOwnerbutton();
 
     }
 

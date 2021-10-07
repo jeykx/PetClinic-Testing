@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 
 public class FindOwnersPage extends GlobalPage {
 
-    public WebDriver driver = new ChromeDriver();
+    /*public WebDriver driver = new ChromeDriver();*/
 
     public FindOwnersPage(WebDriver driver) {super(driver);}
 

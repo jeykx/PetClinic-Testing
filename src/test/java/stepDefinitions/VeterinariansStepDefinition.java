@@ -1,8 +1,6 @@
 package stepDefinitions;
 
-import base.confUtil;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import base.BaseUtil;
 import pageObjects.VeterinariansPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,11 +8,11 @@ import io.cucumber.java.en.When;
 
 public class VeterinariansStepDefinition {
 
-    private final confUtil base;
-    public static final WebDriver driver = new ChromeDriver();
+    private final BaseUtil base;
+    /*public static final WebDriver driver = new ChromeDriver();*/
 
 
-    public VeterinariansStepDefinition(confUtil base) { this.base = base; }
+    public VeterinariansStepDefinition(BaseUtil base) { this.base = base; }
 
     @Given("i am on the home page of the website petclinic")
     public void queJeSuisSurLaPageDAccueilDuSiteWeb() {

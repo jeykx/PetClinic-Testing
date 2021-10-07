@@ -1,23 +1,21 @@
 package stepDefinitions;
 
-import base.confUtil;
+import base.BaseUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.FindOwnersPage;
 
 public class FindOwnersStepDefinition {
 
-    private final confUtil base;
+    private final BaseUtil base;
 
-    public FindOwnersStepDefinition(confUtil base) {
+    public FindOwnersStepDefinition(BaseUtil base) {
         this.base = base;
     }
 
-    public static final WebDriver driver = new ChromeDriver();
+   /* public static final WebDriver driver = new ChromeDriver();*/
 
 
     @Given("i am on the home page of the website")
