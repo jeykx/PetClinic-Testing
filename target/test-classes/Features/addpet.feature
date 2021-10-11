@@ -4,17 +4,17 @@ Feature: As a visitor to the website I can add a pet so that it is visible on th
     Given i access on the owner's page
     And click "Add New Pet" button
     And i fill form in the following:
-      |locator   |value
-      |name      |Mosquito
-      |birthDate |2014-12-05
-      |type      |dog
+      |locator   |value       |
+      |NAME      |Mosquito    |
+      |BIRTHDATE |2021-12-10  |
+      |TYPE      |dog         |
     When i click on "Add Pet"
     Then pet has been added to the owner's profile
     And I control that print information are:
-      |locator   |value
-      |name      |Mosquito
-      |birthDate |2014-12-05
-      |type      |dog
+      |locator   |value       |
+      |NAME      |Mosquito    |
+      |BIRTHDATE |2021-12-10  |
+      |TYPE      |dog         |
 
     Scenario Outline:
       Given i am on the owner's page

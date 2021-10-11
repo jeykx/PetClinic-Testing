@@ -10,7 +10,7 @@ Feature: As a visitor to the website I can add an owner to have access to this i
       |ADDRESS    |rue du pere noel |
       |CITY       |henin beaumont   |
       |TELEPHONE  |0303030303       |
-    When I click on "Add Owner" button
+    When I click "Add Owner" button
     Then I'm redirected on page with title "Owner Information"
     And I control that print information :
       |locator    |value            |
@@ -22,7 +22,7 @@ Feature: As a visitor to the website I can add an owner to have access to this i
 
 
     Scenario: cannot be empty: fields cannot be empty
-      Given i'm on the page for creating a new owner
+      Given i'm on the page for creating a "find owners"
       When i click on the confirmation button "Add Owner" without filling in the required fields
       Then the error message "ne peut pas être vide" is displayed below each field
 

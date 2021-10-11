@@ -26,13 +26,12 @@ public class AddOwnerStepDefinition {
 
     @Given("I'm on {string} page")
     public void PageFindOwners(String arg0) {
-        /**AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-        addOwnerPage.VisibleBtn(arg0);*/
+
         GlobalPage globalPage = new GlobalPage(base.driver);
         globalPage.clikOnMenuName(arg0);
     }
 
-    @And("i click on {string} button")
+    @And("I click on {string} button")
     public void queJeCliqueSurLeBouton(String arg0) {
 
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
@@ -49,7 +48,7 @@ public class AddOwnerStepDefinition {
 
     }
 
-    @When("I click on {string} button")
+    @When("I click {string} button")
     public void jeCliqueSurLeBoutonAddOwner(String arg0) {
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
         addOwnerPage.clickOnAddOwnerbutton();
@@ -66,14 +65,18 @@ public class AddOwnerStepDefinition {
 
     }
 
-    @Given("i'm on the page for creating a new owner")
-    public void iMOnThePageForCreatingANewOwner() {
+    @Given("i'm on the page for creating a {string}")
+    public void iMOnThePageForCreatingANewOwner(String arg0) {
+
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
     }
 
     @When("i click on the confirmation button {string} without filling in the required fields")
     public void iClickOnTheConfirmationButtonWithoutFillingInTheRequiredFields(String arg0) {
 
         AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
+        addOwnerPage.ClickBtnAddOwner(arg0);
         addOwnerPage.clickOnAddOwnerbutton();
 
     }

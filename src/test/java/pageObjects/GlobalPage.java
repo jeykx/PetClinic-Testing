@@ -3,7 +3,6 @@ package pageObjects;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.How;
@@ -18,14 +17,15 @@ public class GlobalPage {
     )
     private List<WebElement> lst_menu;
 
-    /*public static final WebDriver driver = new ChromeDriver();*/
-
     protected WebDriver driver;
 
     public GlobalPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Owner')]")
+    private WebElement btnFindOwner;
 
     public void clikOnMenuName(String menuName) {
         boolean findMenu = false;
@@ -37,6 +37,11 @@ public class GlobalPage {
             }
         }
         Assert.assertTrue("Menu " + menuName + " not present on screen", findMenu);
+    }
+
+    public void clickFindOwnerBtn() {
+
+        this.btnFindOwner.click();
     }
 
     public boolean isTextPresent(String texte) {

@@ -11,7 +11,7 @@ public class AddOwnerPage extends GlobalPage {
 
     public AddOwnerPage(WebDriver driver) {super(driver);}
 
-    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Add Owner')]")
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Add Owner')]")
     private WebElement BtnAddOwnerPage;
 
     @FindBy(how = How.ID, using = "firstname")
@@ -29,7 +29,7 @@ public class AddOwnerPage extends GlobalPage {
     @FindBy(how = How.ID, using = "telephone")
     private WebElement insertTelephone;
 
-    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Add Owner')]")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"add-owner-form\"]/div[2]/div/button")
     private WebElement btnAddOwnerValidate;
 
     public enum Filters {
@@ -51,7 +51,6 @@ public class AddOwnerPage extends GlobalPage {
 
     public void VisibleBtn(String arg0) {
 
-        /**driver.get("https://spring-petclinic-community.herokuapp.com/owners/find");*/
         this.BtnAddOwnerPage.isDisplayed();
     }
 
@@ -84,6 +83,7 @@ public class AddOwnerPage extends GlobalPage {
     }
 
     public void clickOnAddOwnerbutton() {
+
         this.btnAddOwnerValidate.click();
     }
 

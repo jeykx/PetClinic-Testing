@@ -18,8 +18,8 @@ public class VeterinariansPage extends GlobalPage {
     }
 
 
-    public void ClickVeto() {
-        driver.get("https://spring-petclinic-community.herokuapp.com/");
+    public void ClickVeto(String linkvet) {
+
         this.LinkVet.click();
     }
 }

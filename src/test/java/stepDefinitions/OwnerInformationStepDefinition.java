@@ -43,7 +43,7 @@ public class OwnerInformationStepDefinition {
         List<Map<String, String>> allDatas = table.asMaps(String.class, String.class);
         for (Map<String, String> data : allDatas) {
             OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-            ownerInformationPage.FillsPet(data.get("locator"), data.get("value"));
+            ownerInformationPage.inputFormPet(data.get("locator"), data.get("value"));
         }
 
     }

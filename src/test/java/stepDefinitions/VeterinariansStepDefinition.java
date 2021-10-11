@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import base.BaseUtil;
-import pageObjects.VeterinariansPage;
+import pageObjects.GlobalPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,8 +9,6 @@ import io.cucumber.java.en.When;
 public class VeterinariansStepDefinition {
 
     private final BaseUtil base;
-    /*public static final WebDriver driver = new ChromeDriver();*/
-
 
     public VeterinariansStepDefinition(BaseUtil base) { this.base = base; }
 
@@ -21,9 +19,9 @@ public class VeterinariansStepDefinition {
     }
 
     @When("click on the {string} link")
-    public void jeCliqueSurLeLien() {
-        VeterinariansPage veterinariansPage = new VeterinariansPage(base.driver);
-        veterinariansPage.ClickVeto();
+    public void jeCliqueSurLeLien(String arg0) {
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
 
 
     }

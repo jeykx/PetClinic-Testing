@@ -1,11 +1,16 @@
 package stepDefinitions;
 
 import base.BaseUtil;
-import io.cucumber.java.en.Given;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.FindOwnersPage;
+import pageObjects.GlobalPage;
+
+import java.util.List;
+import java.util.Map;
 
 public class FindOwnersStepDefinition {
 
@@ -15,8 +20,6 @@ public class FindOwnersStepDefinition {
         this.base = base;
     }
 
-   /* public static final WebDriver driver = new ChromeDriver();*/
-
 
     @Given("i am on the home page of the website")
     public void queJeSuisSurLaPageDAccueilDuSiteWeb() {
@@ -24,16 +27,16 @@ public class FindOwnersStepDefinition {
     }
 
     @When("i click on the {string} link")
-    public void jeCliqueSurLeLienFindOwners() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.ClickLinkOwner();
+    public void jeCliqueSurLeLienFindOwners(String arg0) {
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
 
     }
 
-    @And("i click on the {string} button for access all owners")
+    @And("i click on the Find Owner button for access all owners")
     public void jeCliqueSurLeBoutonFindOwner() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.ClickFindOwner();
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clickFindOwnerBtn();
 
     }
 
@@ -48,21 +51,28 @@ public class FindOwnersStepDefinition {
     }
 
     @And("i click on the {string} link in the navbar")
-    public void clickLinkFoNav() {
+    public void clickLinkFoNav(String arg0) {
+
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
 
     }
 
     @When("i fill form")
-    public void jeSaisiLeNomDuPropriétaireDansLeChamp() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.SearchOwner();
+    public void jeSaisiLeNomDuPropriétaireDansLeChamp(DataTable table) {
+
+        List<Map<String, String>> allDatas = table.asMaps(String.class, String.class);
+        FindOwnersPage findOwnerPage = new FindOwnersPage(base.driver);
+        for (Map<String, String> data : allDatas) {
+            findOwnerPage.searchOwnerForm(data.get("locator"), data.get("value"));
+        }
     }
 
-    @And("click on the {string} button")
+    @And("click on the Find Owner button")
     public void CliqueSurLeBoutonFindOwner() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.SearchClickOwner();
 
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clickFindOwnerBtn();
 
     }
 
@@ -79,21 +89,29 @@ public class FindOwnersStepDefinition {
     }
 
     @And("click on the {string} link in the navbar")
-    public void clickLinkFoNavOutline() {
+    public void clickLinkFoNavOutline(String arg0) {
+
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clikOnMenuName(arg0);
 
     }
 
     @When("i fill form {string}")
-    public void jeSaisiLeNomDuPropriétaireDansLeChampoutiline() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.SearchOwner();
+    public void jeSaisiLeNomDuPropriétaireDansLeChampoutiline(String arg0, DataTable table) {
+
+
+        FindOwnersPage findOwnerPage = new FindOwnersPage(base.driver);
+
+        findOwnerPage.searchOwnerFormOut(arg0);
+
+
     }
 
-    @And("i click on the {string} button")
+    @And("i click on the Find Owner button")
     public void CliqueSurLeBoutonFindOwnerOutline() {
-        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
-        findOwnersPage.SearchClickOwner();
 
+        GlobalPage globalPage = new GlobalPage(base.driver);
+        globalPage.clickFindOwnerBtn();
 
     }
 
@@ -101,4 +119,5 @@ public class FindOwnersStepDefinition {
     @Then("the owner's details are good displayed")
     public void lesInformationsDuPropriètaireSAfficheOutline() {
     }
+
 }

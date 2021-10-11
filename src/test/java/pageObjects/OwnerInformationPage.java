@@ -14,13 +14,13 @@ public class OwnerInformationPage extends GlobalPage {
     private WebElement AddNewPetRedirect;
 
     @FindBy(how = How.ID, using = "name")
-    private WebElement InserPetName;
+    private WebElement insertPetName;
 
     @FindBy(how = How.ID, using = "birthDate")
-    private WebElement InsertPetBirthDate;
+    private WebElement insertPetBirthDate;
 
     @FindBy(how = How.ID, using = "type")
-    private WebElement SelectPetType;
+    private WebElement selectPetType;
 
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Add Pet')]")
     private WebElement AddNewpetValidateBtn;
@@ -35,11 +35,36 @@ public class OwnerInformationPage extends GlobalPage {
         this.AddNewPetRedirect.click();
     }
 
-    public void FillsPet(String name, String value) {
+    public enum Filters {
+        NAME("NAME"),
+        BIRTHDATE("BIRTHDATE"),
+        TYPE("TYPE");
+        private final String stringValue;
+        Filters(String stringValue){
+            this.stringValue = stringValue;
+        }
+        @Override
+        public String toString() {
+            return stringValue;
+        }
+    }
 
-        this.InserPetName.sendKeys("Mosquito");
-        this.InsertPetBirthDate.sendKeys("2014-12-15");
-        new Select(this.SelectPetType).selectByVisibleText("dog");
+
+    public void inputFormPet(String name, String value) {
+        OwnerInformationPage.Filters currentFilter = OwnerInformationPage.Filters.valueOf(name);
+        switch (currentFilter) {
+            case NAME:
+                this.insertPetName.sendKeys(value);
+                break;
+            case BIRTHDATE:
+                this.insertPetBirthDate.sendKeys(value);
+                break;
+            case TYPE:
+                new Select(this.selectPetType).selectByVisibleText(value);
+                break;
+            default:
+                break;
+        }
     }
 
     public void BtnAddPetValidate(String arg0) {
