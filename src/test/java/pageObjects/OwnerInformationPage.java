@@ -11,7 +11,7 @@ public class OwnerInformationPage extends GlobalPage {
     public OwnerInformationPage(WebDriver driver) {super(driver);}
 
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'New Pet')]")
-    private WebElement AddNewPetRedirect;
+    private WebElement addNewPetRedirect;
 
     @FindBy(how = How.ID, using = "name")
     private WebElement insertPetName;
@@ -23,16 +23,16 @@ public class OwnerInformationPage extends GlobalPage {
     private WebElement selectPetType;
 
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Add Pet')]")
-    private WebElement AddNewpetValidateBtn;
+    private WebElement addNewpetValidateBtn;
 
-    public void UrlOwner() {
+    public void urlOwner() {
 
         driver.get("https://spring-petclinic-community.herokuapp.com/owners/11");
     }
 
-    public void AddNewPetBtn(String arg0) {
+    public void addNewPetBtn(String arg0) {
 
-        this.AddNewPetRedirect.click();
+        this.addNewPetRedirect.click();
     }
 
     public enum Filters {
@@ -67,11 +67,15 @@ public class OwnerInformationPage extends GlobalPage {
         }
     }
 
-    public void BtnAddPetValidate(String arg0) {
+    public void btnAddPetValidate(String arg0) {
 
-        this.AddNewpetValidateBtn.click();
+        this.addNewpetValidateBtn.click();
     }
 
     public void fillsPetData(String arg0, String arg1, String arg2) {
+
+        this.insertPetName.sendKeys(arg0);
+        this.insertPetBirthDate.sendKeys(arg1);
+        new Select(this.selectPetType).selectByValue(arg2);
     }
 }

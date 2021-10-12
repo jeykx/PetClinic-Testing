@@ -24,8 +24,8 @@ Feature: As a visitor to the website I can add a pet so that it is visible on th
       Then pet has good been added to the owner's profile
 
       Examples:
-        |name   |birthDate  |type
-        |rex    |2020-06-13 |dog
-        |icarus |2021-04-20 |cat
-        |elios  |2018-02-10 |dog
+        |name   |birthDate  |type |
+        |rex    |2020-06-13 |dog  |
+        |icarus |2021-04-20 |cat  |
+        |elios  |2018-02-10 |dog  |
 

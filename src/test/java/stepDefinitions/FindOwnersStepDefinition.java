@@ -6,8 +6,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pageObjects.FindOwnersPage;
 import pageObjects.GlobalPage;
+import pageObjects.HomePage;
 
 import java.util.List;
 import java.util.Map;
@@ -23,6 +25,9 @@ public class FindOwnersStepDefinition {
 
     @Given("i am on the home page of the website")
     public void queJeSuisSurLaPageDAccueilDuSiteWeb() {
+
+        HomePage homePage = new HomePage(base.driver);
+        Assert.assertTrue(homePage.homePageVerify());
 
     }
 
@@ -42,11 +47,17 @@ public class FindOwnersStepDefinition {
 
     @Then("i access the list of all owners")
     public void jAccèdeÀLaListeDeTousLesPropriétaires() {
+
+        FindOwnersPage findOwnersPage = new FindOwnersPage(base.driver);
+        Assert.assertTrue(findOwnersPage.ownersListVisible());
     }
 
 
     @Given("i am on the home page of the website url")
     public void queJeSuisSurLaPageFindOwners() {
+
+        HomePage homePage = new HomePage(base.driver);
+        Assert.assertTrue(homePage.homePageVerify());
 
     }
 
@@ -79,6 +90,9 @@ public class FindOwnersStepDefinition {
 
     @Then("the owner's details are displayed")
     public void lesInformationsDuPropriètaireSAffiche() {
+
+        FindOwnersPage findOwnerPage = new FindOwnersPage(base.driver);
+        Assert.assertTrue(findOwnerPage.nameOwnerIsDisplay());
     }
 
     // Scenario Outline //

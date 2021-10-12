@@ -11,14 +11,8 @@ Feature: As a visitor to the website I can add an owner to have access to this i
       |CITY       |henin beaumont   |
       |TELEPHONE  |0303030303       |
     When I click "Add Owner" button
-    Then I'm redirected on page with title "Owner Information"
-    And I control that print information :
-      |locator    |value            |
-      |firstName  |jeremy           |
-      |lastName   |dufour           |
-      |address    |rue du pere noel |
-      |city       |henin beaumont   |
-      |telephone  |0303030303       |
+    Then I'm redirected on page with title Owner Information
+    And I check that the owner's information is displayed
 
 
     Scenario: cannot be empty: fields cannot be empty
@@ -37,4 +31,3 @@ Feature: As a visitor to the website I can add an owner to have access to this i
       |julien     |leclerc     |5 rue du pont                    |lille  |0770234512  |
       |leo        |dubois      |7 avenue du pres                 |arras  |0325478952  |
       |corentin   |carpentier  |123 boulevard du marechal juin   |amiens |0678234501  |
-

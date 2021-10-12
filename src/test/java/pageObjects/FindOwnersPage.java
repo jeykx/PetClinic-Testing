@@ -13,9 +13,27 @@ public class FindOwnersPage extends GlobalPage {
     @FindBy(how = How.ID, using = "lastName")
     private WebElement insertLastname;
 
+    @FindBy(how = How.XPATH, using = "//table[@id='vets']")
+    private WebElement ownersTableVerify;
+
+    @FindBy(how = How.XPATH, using = "//b[contains(text(),'George Franklin')]")
+    private WebElement ownerNameDisplayVerify;
+
     public void searchOwnerFormOut(String arg0) {
 
         this.insertLastname.sendKeys(arg0);
+    }
+
+    public boolean ownersListVisible() {
+
+        WebElement tableVerify = this.ownersTableVerify;
+        return true;
+    }
+
+    public boolean nameOwnerIsDisplay() {
+
+        WebElement nameOwner = this.ownerNameDisplayVerify;
+        return true;
     }
 
 

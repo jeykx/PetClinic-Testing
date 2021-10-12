@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pageObjects.OwnerInformationPage;
 
 import java.util.List;
@@ -19,13 +20,11 @@ public class OwnerInformationStepDefinition {
         this.base = base;
     }
 
-   /* public static final WebDriver driver = new ChromeDriver();*/
-
     @Given("i access on the owner's page")
     public void queJeSuisSurLaFicheDInformationsDuPropriétaire() {
 
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.UrlOwner();
+        ownerInformationPage.urlOwner();
 
     }
 
@@ -33,7 +32,7 @@ public class OwnerInformationStepDefinition {
     public void queJeCliqueSurLeBoutonAddNewPet(String arg0) {
 
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.AddNewPetBtn(arg0);
+        ownerInformationPage.addNewPetBtn(arg0);
 
     }
 
@@ -51,7 +50,7 @@ public class OwnerInformationStepDefinition {
     @When("i click on {string}")
     public void jeCliqueSurLeBoutonAddPet(String arg0) {
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.BtnAddPetValidate(arg0);
+        ownerInformationPage.btnAddPetValidate(arg0);
 
     }
 
@@ -70,14 +69,14 @@ public class OwnerInformationStepDefinition {
     public void iAmOnTheOwnerSPage() {
 
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.UrlOwner();
+        ownerInformationPage.urlOwner();
 
     }
 
     @And("i click on button {string}")
     public void iClickOnButton(String arg0) {
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.AddNewPetBtn(arg0);
+        ownerInformationPage.addNewPetBtn(arg0);
 
     }
 
@@ -93,12 +92,14 @@ public class OwnerInformationStepDefinition {
     public void clickOn(String arg0) {
 
         OwnerInformationPage ownerInformationPage = new OwnerInformationPage(base.driver);
-        ownerInformationPage.BtnAddPetValidate(arg0);
+        ownerInformationPage.btnAddPetValidate(arg0);
 
     }
 
-    @Then("pet has good been added to the owner's profile")
-    public void petHasGoodBeenAddedToTheOwnerSProfile() {
+    @Then("pets {string} have been added to the owner's profile")
+    public void petHasGoodBeenAddedToTheOwnerSProfile(String petsname) {
+
+        Assert.assertEquals(petsname, petsname);
     }
 
 

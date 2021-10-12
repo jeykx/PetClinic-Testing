@@ -21,11 +21,11 @@ Feature: As a visitor to the website I can add a pet so that it is visible on th
       And i click on button "Add New Pet"
       And i fill form for add pet "<name>" "<birthDate>" "<type>"
       When click on "Add Pet"
-      Then pet has good been added to the owner's profile
+      Then pets "<name>" have been added to the owner's profile
 
       Examples:
-        |name   |birthDate  |type
-        |rex    |2020-06-13 |dog
-        |icarus |2021-04-20 |cat
-        |elios  |2018-02-10 |dog
+        |name   |birthDate  |type |
+        |rex    |2020-06-13 |dog  |
+        |icarus |2021-04-20 |cat  |
+        |elios  |2018-02-10 |dog  |
 

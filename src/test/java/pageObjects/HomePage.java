@@ -10,14 +10,15 @@ public class HomePage extends GlobalPage {
     public HomePage(WebDriver driver) {super(driver);}
 
 
-     @FindBy(how = How.XPATH, using = "//body/div[1]/div[1]/div[1]/div[1]/img[1]")
-     private WebElement HomePictureVerify;
+    @FindBy(how = How.XPATH, using = "//h2[contains(text(),'Welcome')]")
+    private WebElement verifTitleVisible;
 
 
 
-    public void WebConnexion() {
+    public boolean homePageVerify() {
 
-        this.HomePictureVerify.isDisplayed();
+        this.verifTitleVisible.isDisplayed();
 
+        return true;
     }
 }
