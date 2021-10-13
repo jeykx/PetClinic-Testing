@@ -100,6 +100,9 @@ public class FindOwnersStepDefinition {
     @Given("i am good on the home page of the website")
     public void queJeSuisSurLaPageFindOwnersOutline() {
 
+        HomePage homePage = new HomePage(base.driver);
+        Assert.assertTrue(homePage.homePageVerify());
+
     }
 
     @And("click on the {string} link in the navbar")
@@ -111,11 +114,10 @@ public class FindOwnersStepDefinition {
     }
 
     @When("i fill form {string}")
-    public void jeSaisiLeNomDuPropriétaireDansLeChampoutiline(String arg0, DataTable table) {
+    public void jeSaisiLeNomDuPropriétaireDansLeChampoutiline(String arg0) {
 
 
         FindOwnersPage findOwnerPage = new FindOwnersPage(base.driver);
-
         findOwnerPage.searchOwnerFormOut(arg0);
 
 
@@ -130,8 +132,10 @@ public class FindOwnersStepDefinition {
     }
 
 
-    @Then("the owner's details are good displayed")
-    public void lesInformationsDuPropriètaireSAfficheOutline() {
+    @Then("the details of the owners named {string} are well displayed")
+    public void lesInformationsDuPropriètaireSAfficheOutline(String lastNameOwner) {
+
+        Assert.assertEquals(lastNameOwner,lastNameOwner);
     }
 
 }

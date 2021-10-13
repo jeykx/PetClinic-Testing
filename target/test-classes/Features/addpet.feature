@@ -21,7 +21,7 @@ Feature: As a visitor to the website I can add a pet so that it is visible on th
       And i click on button "Add New Pet"
       And i fill form for add pet "<name>" "<birthDate>" "<type>"
       When click on "Add Pet"
-      Then pet has good been added to the owner's profile
+      Then pets "<name>" have been added to the owner's profile
 
       Examples:
         |name   |birthDate  |type |

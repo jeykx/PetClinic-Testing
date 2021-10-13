@@ -14,7 +14,7 @@ Feature: As a visitor to the website I can search for an owner by name to get ac
     And click on the "find owners" link in the navbar
     When i fill form "<LASTNAME>"
     And i click on the Find Owner button
-    Then the owner's details are good displayed
+    Then the details of the owners named "<LASTNAME>" are well displayed
 
     Examples:
     |LASTNAME   |

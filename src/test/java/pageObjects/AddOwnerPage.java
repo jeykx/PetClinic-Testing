@@ -7,7 +7,6 @@ import org.openqa.selenium.support.How;
 
 public class AddOwnerPage extends GlobalPage {
 
-    /*public WebDriver driver = new ChromeDriver();*/
 
     public AddOwnerPage(WebDriver driver) {super(driver);}
 
@@ -66,10 +65,6 @@ public class AddOwnerPage extends GlobalPage {
     }
 
 
-    public void VisibleBtn(String arg0) {
-
-        this.btnAddOwnerPage.isDisplayed();
-    }
 
     public void clickBtnAddOwner(String arg0) {
 
@@ -107,11 +102,10 @@ public class AddOwnerPage extends GlobalPage {
 
     public boolean verifyOwnerDetailIsDisplay() {
 
-                WebElement lastnameVerify = this.nameVerify;
-                WebElement addressVerify = this.addressVerify;
-                WebElement cityVerify = this.cityVerify;
-                WebElement telephoneVerify = this.phoneVerify;
-
+        WebElement lastnameVerify = this.nameVerify;
+        WebElement addressVerify = this.addressVerify;
+        WebElement cityVerify = this.cityVerify;
+        WebElement telephoneVerify = this.phoneVerify;
         return true;
 
         }
@@ -122,6 +116,7 @@ public class AddOwnerPage extends GlobalPage {
     }
 
     public void inputFormOutline(String arg0, String arg1, String arg2, String arg3, String arg4) {
+
         this.insertFirstname.sendKeys(arg0);
         this.insertLastname.sendKeys(arg1);
         this.insertAddress.sendKeys(arg2);
