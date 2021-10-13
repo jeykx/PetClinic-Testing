@@ -110,8 +110,9 @@ public class AddOwnerStepDefinition {
     public void iFillFormInTheFollowingAndAndAndAnd(String arg0, String arg1, String arg2, String arg3, String arg4) {
 
 
-            AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
-            addOwnerPage.inputFormOutline(arg0,arg1,arg2,arg3,arg4);
+        AddOwnerPage addOwnerPage = new AddOwnerPage(base.driver);
+        addOwnerPage.inputFormOutline(arg0,arg1,arg2,arg3,arg4);
+
         }
 
     @When("I click on the {string} button")
@@ -122,7 +123,10 @@ public class AddOwnerStepDefinition {
 
     }
 
-    @Then("I'am redirected on page with title {string}")
-    public void iAmRedirectedOnPageWithTitle(String arg0) {
+    @Then("I'am redirected on page with title Owner Information")
+    public void iAmRedirectedOnPageWithTitle() {
+
+        AddOwnerPage addOwnePage = new AddOwnerPage(base.driver);
+        Assert.assertTrue(addOwnePage.titleOwnerInfosDisplay());
     }
 }

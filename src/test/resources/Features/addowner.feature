@@ -25,7 +25,7 @@ Feature: As a visitor to the website I can add an owner to have access to this i
       And i click on the "Add Owner" button to access the form
       And I fill form in the following "<firstName>" and "<lastName>" and "<address>" and "<city>" and "<telephone>"
       When I click on the "Add Owner" button
-      Then I'am redirected on page with title "Owner Information"
+      Then I'am redirected on page with title Owner Information
       Examples:
       |firstName  |lastName    |address                          |city   |telephone   |
       |julien     |leclerc     |5 rue du pont                    |lille  |0770234512  |
