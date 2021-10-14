@@ -58,8 +58,12 @@ public class OwnerInformationStepDefinition {
     public void lAnimalÀBienÉtéAjoutéÀLaFicheDuPropriétaire() {
     }
 
-    @And("I control that print information are:")
-    public void VerifyInfosPet() {
+    @And("I control that print information are {string} and {string} and {string}:")
+    public void VerifyInfosPet(String namepet, String datepet, String typepet) {
+
+        Assert.assertEquals("Mosquito", namepet);
+        Assert.assertEquals("2021-12-10", datepet);
+        Assert.assertEquals("dog", typepet);
 
     }
 

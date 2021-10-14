@@ -10,11 +10,8 @@ Feature: As a visitor to the website I can add a pet so that it is visible on th
       |TYPE      |dog         |
     When i click on "Add Pet"
     Then pet has been added to the owner's profile
-    And I control that print information are:
-      |locator   |value       |
-      |NAME      |Mosquito    |
-      |BIRTHDATE |2021-12-10  |
-      |TYPE      |dog         |
+    And I control that print information are "Mosquito" and "2021-12-10" and "dog":
+
 
     Scenario Outline:
       Given i am on the owner's page
