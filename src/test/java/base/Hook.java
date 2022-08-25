@@ -19,14 +19,14 @@ public class Hook extends BaseUtil {
 
     @Before
     public void setUp() {
-        base.driver = base.initBrowser(System.getProperty("browser"), base.driver, System.getProperty("headless"));
+        base.driver = BaseUtil.initBrowser(System.getProperty("browser"), base.driver, System.getProperty("headless"));
     }
 
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) base.driver).getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png", "Screenshot");
+            scenario.attach(screenshot, "image/png", "Screenshot");
         }
         base.driver.quit();
         base.driver = null;
@@ -37,7 +37,7 @@ public class Hook extends BaseUtil {
         // if (scenario.isFailed()) {
         try {
             byte[] screenshot = ((TakesScreenshot) base.driver).getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png", "Screenshot");
+            scenario.attach(screenshot, "image/png", "Screenshot");
         } catch (WebDriverException wde) {
             System.err.println(wde.getMessage());
         } catch (ClassCastException cce) {
